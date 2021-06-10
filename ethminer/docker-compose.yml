@@ -1,0 +1,17 @@
+version: '3'
+services:
+  myEthminer:
+    container_name: myEthminer
+    image: nstrelow/docker-ethminer:latest
+    restart: always
+    command: -P stratum1+tcp://0x4496b76566c90c1d046eb616923ed804a2344637.myEthminer@eth-asia1.nanopool.org:9999
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '1', '2' ]
+              capabilities: [ gpu ]
+
+#docker run -itd --restart=always --gpus=all --name myEthminer nstrelow/docker-ethminer \
+  #-P stratum1+tcp://0x4496b76566c90c1d046eb616923ed804a2344637.myEthminer@eth-asia1.nanopool.org:9999
