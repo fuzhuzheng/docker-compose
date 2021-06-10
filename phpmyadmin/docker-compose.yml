@@ -1,0 +1,19 @@
+version: '3'
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
+    restart: always
+#    ports:
+#      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+#      - PMA_HOST=172.18.0.3
+    networks:
+          mynetwork:
+            ipv4_address: 172.18.0.9
+
+networks:
+  mynetwork:
+    external: true
+#docker run --name myadmin -itd --net mynetwork --ip 172.18.0.8 --restart=always -e PMA_HOST=172.18.0.3 -p 8080:80 phpmyadmin

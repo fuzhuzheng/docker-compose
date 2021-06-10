@@ -1,0 +1,27 @@
+server {
+
+    listen       801;
+    server_name  ~^(.+)?\.mytest\.com$;
+
+
+    location / {
+        include uwsgi_params;
+        #定义uwsgi的socket，即django项目容器的地址和端口
+        uwsgi_pass 172.19.3.2:8001;
+    }
+
+    #定义项目静态文件目录，注意alias和root的区别
+    location /static {
+        alias /home/app/collected_static;
+    }
+
+    error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+
+}
+

@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  nginx:
+    build:
+      context: ./nginx
+    restart: always
+    volumes:
+      - ${PROJECT_FOLDER}:/home/app:rw
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:rw
+      - ./nginx/conf/conf.d:/etc/nginx/sites-available:rw
+      - ./nginx/log:/var/log/nginx:rw
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.18.2
+
+  django:
+    build:
+      context: ./app
+
+    restart: always
+    volumes:
+      - ${PROJECT_FOLDER}:/home/app:rw
+      - ./app/uwsgi.ini:/etc/uwsgi/uwsgi.ini:rw
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.18.3
+    # command: uwsgi  --emperor uwsgi.ini
+    command: uwsgi --ini /etc/uwsgi/uwsgi.ini
+
+networks:
+  mynetwork:
+    external: true
