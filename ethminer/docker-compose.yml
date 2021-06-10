@@ -4,7 +4,7 @@ services:
     container_name: myEthminer
     image: nstrelow/docker-ethminer:latest
     restart: always
-    command: -P stratum1+tcp://0x4496b76566c90c1d046eb616923ed804a2344637.myEthminer@eth-asia1.nanopool.org:9999
+    command: -P stratum1+tcp://0x4496b76566c90c1d046eb616923ed804a2344637@eth-asia1.nanopool.org:9999/worker1/fuzhuzheng@163.com
     deploy:
       resources:
         reservations:
