@@ -1,10 +1,11 @@
 version: '3'
 services:
   mysql:
-    container_name: mysql
-    image: mysql:5.7.29
+    container_name: mysql33
+#    image: mysql:5.7.29
+    image: mysql:latest
     volumes:
-      - ${PROJECT_FOLDER}:/home/app:rw
+#      - ${PROJECT_FOLDER}:/home/app:rw
       - ./conf:/etc/mysql/conf.d:rw
       - ./data:/var/lib/mysql:rw
       - ./log:/var/log/mysql:rw
@@ -14,8 +15,8 @@ services:
       TZ: Asia/Shanghai
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.3
-#    command:
+        ipv4_address: 172.18.0.33
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 networks:
   mynetwork:
