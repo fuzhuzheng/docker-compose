@@ -3,7 +3,8 @@ services:
 
   nginx:
     container_name: mynginx
-    image: nginx:latest
+    build:
+      context: ./build
     restart: always
     volumes:
       - ${PROJECT_FOLDER}:/home/app:rw
