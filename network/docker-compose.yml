@@ -1,15 +1,9 @@
 version: '3'
 
 networks:
-#  mynetwork1:
-#    external: true
-#
-#  mynetwork2:
-#    external:
-#      name: "test_mynet"
 
   mynetwork3:
-    name: mynetwork3
+    name: mynetwork
     driver: bridge
     ipam:
       config:

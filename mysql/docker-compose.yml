@@ -12,4 +12,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       TZ: Asia/Shanghai
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.3
 #    command:
+
+networks:
+  mynetwork:
+    external: true
