@@ -10,7 +10,12 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [ '0', '1', '2' , '3' ]
+              device_ids: [
+                  '0',
+#                  '1',
+                  '2',
+#                  '3'
+              ]
               capabilities: [ gpu ]
 
 #docker run -itd --restart=always --gpus=all --name myEthminer nstrelow/docker-ethminer \
