@@ -1,0 +1,18 @@
+version: '3'
+services:
+  phpmyadmin:
+    container_name: mysamba
+    image: dperson/samba
+    volumes:
+      - /home/wwwroot:/share:rw
+    restart: always
+    command: -w "WORKGROUP" -u "flan;123456789;1000;flan;1000" -s "share;/share;yes;no;no;flan;flan;flan;comment"
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.6
+
+networks:
+  mynetwork:
+    external: true
+
+# docker run -itd --net mynetwork --ip 172.18.0.6 --restart=always --name mysamba -v /home/wwwroot:/share -d dperson/samba -w "WORKGROUP" -u "flan;123456789;1000;flan;1000" -s "share;/share;yes;no;no;flan;flan;flan;comment"
