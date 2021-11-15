@@ -9,6 +9,7 @@ services:
     restart: always
     volumes:
       - /home:/home:rw
+#    working_dir: /home
     networks:
       mynetwork:
         ipv4_address: 172.18.0.6
