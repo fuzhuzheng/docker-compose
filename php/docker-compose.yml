@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  nginx:
+    container_name: php6
+    build:
+      context: ./php
+#    image: php:7.4.6-fpm
+    restart: always
+    volumes:
+      - /home:/home:rw
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.6
+
+networks:
+  mynetwork:
+    external: true
