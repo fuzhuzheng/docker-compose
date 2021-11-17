@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  nginx:
+    container_name: redis7
+    image: redis:5.0.7
+    restart: always
+    volumes:
+      - ./conf/redis.conf:/etc/redis/redis.conf:rw
+      - ./data:/data:rw
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.7
+#    command: redis-server /etc/redis/redis.conf
+
+networks:
+  mynetwork:
+    external: true
+
+
+# docker run -itd --name redis7 --net mynetwork --ip 172.18.0.7 --restart=always -v /home/docker/redis/conf/redis.conf:/etc/redis/redis.conf -v /home/docker/redis/data:/data redis:5.0.7 redis-server /etc/redis/redis.conf
