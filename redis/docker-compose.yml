@@ -3,7 +3,7 @@ services:
 
   nginx:
     container_name: redis7
-    image: redis:5.0.7
+    image: redis:5.0.14
     restart: always
     volumes:
       - ./conf/redis.conf:/etc/redis/redis.conf:rw
@@ -11,7 +11,7 @@ services:
     networks:
       mynetwork:
         ipv4_address: 172.18.0.7
-#    command: redis-server /etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf
 
 networks:
   mynetwork:
