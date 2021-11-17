@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: shadowsocks-libev
+    image: shadowsocks/shadowsocks-libev:latest
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.2
+
+networks:
+  mynetwork:
+    external: true
+
+
+#docker run \
+#  -d \
+#  --network host \
+#  --name ss-local \
+#  -v /storage/ss-local/conf:/ss-local/conf \
+#  maxduke/ss-local-with-conf-dir
