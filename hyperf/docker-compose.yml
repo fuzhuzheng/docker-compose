@@ -1,0 +1,56 @@
+version: '3'
+services:
+  app:
+    container_name: hyperf-admin
+    image: hyperf/hyperf:7.3-alpine-v3.11-swoole-v4
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cd /data
+        cp .env.dev.docker .env
+        php -d memory_limit=-1 `which composer` i --no-dev
+        rm -rf runtime/*
+        php bin/hyperf.php start
+    volumes:
+      - ./backend:/data
+#    tty: true
+
+    environment:
+      HOST_IP: 127.0.0.1
+      HOST_PORT: 9511
+
+  hyperf:
+    container_name: hyperf8
+    build:
+      context: ./php
+#    image: php:7.4.6-fpm
+    restart: always
+    volumes:
+      - /home/flan/PhpstormProjects/hyperf-admin:/data/project:rw
+    working_dir: /data/project
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.8
+    entrypoint: composer install
+
+networks:
+  mynetwork:
+    external: true
+
+
+
+
+#docker run --name hyperf \
+#-v /workspace/skeleton:/data/project \
+#-p 9501:9501 -it \
+#--privileged -u root \
+#--entrypoint /bin/sh \
+#hyperf/hyperf:7.4-alpine-v3.11-swoole
+
+
+#docker run --name hyperf2 \
+#-v /home/flan/PhpstormProjects/hyperf-admin:/data/project \
+#-p 9501:9501 -it \
+#--entrypoint /bin/sh \
+#hyperf/hyperf:7.4-alpine-v3.11-swoole

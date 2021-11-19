@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  nginx:
+    container_name: elasticsearch-single8
+
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+    environment:
+      discovery.type: single-node
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.8
+
+networks:
+  mynetwork:
+    external: true
+
+
+
+
+# docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.15.2
