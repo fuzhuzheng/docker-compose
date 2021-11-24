@@ -12,6 +12,7 @@ services:
       - ./log:/var/log/nginx:rw
     ports:
       - 8080:8080
+      - 8081:8081
     networks:
       mynetwork:
         ipv4_address: 172.18.0.4
