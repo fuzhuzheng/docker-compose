@@ -60,3 +60,10 @@ networks:
 #      - ./docker/conf.d:/etc/nginx/conf.d
 #      - ./docker/log:/var/log/nginx
 #      - ./frontend:/var/www/frontend
+
+docker run --name hyperf \
+-v /workspace/skeleton:/data/project \
+-p 9501:9501 -it \
+--privileged -u root \
+--entrypoint /bin/sh \
+hyperf/hyperf:7.4-alpine-v3.11-swoole
