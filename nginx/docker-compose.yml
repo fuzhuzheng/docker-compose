@@ -17,6 +17,7 @@ services:
       mynetwork:
         ipv4_address: 172.19.0.4
 
+
 networks:
   mynetwork:
     external: true
