@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  nginx:
+    container_name: elasticsearch-kibana9
+
+    image: docker.elastic.co/kibana/kibana:7.15.2
+    restart: always
+    ports:
+      - 5601:5601
+    volumes:
+      - ./conf:/usr/share/kibana/config:rw
+
+    environment:
+      - ELASTICSEARCH_HOSTS=http://172.18.0.8:9200
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.9
+
+networks:
+  mynetwork:
+    external: true
+
+
+
+
+# docker run --name kib01-test --net elastic -p 127.0.0.1:5601:5601 -e "ELASTICSEARCH_HOSTS=http://es01-test:9200" docker.elastic.co/kibana/kibana:7.15.2

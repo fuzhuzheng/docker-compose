@@ -1,8 +1,15 @@
 version: '3'
 
-networks:
+services:
+  mysql:
+    container_name: hello-world
+    image: hello-world
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.2
 
-  mynetwork3:
+networks:
+  mynetwork:
     name: mynetwork
     driver: bridge
     ipam:
