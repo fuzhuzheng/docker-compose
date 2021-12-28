@@ -5,13 +5,15 @@ services:
     container_name: redis7
     image: redis:5.0.14
     restart: always
+    ports:
+      - 6379:6379
     volumes:
       - ./conf/redis.conf:/etc/redis/redis.conf:rw
       - ./data:/data:rw
     command: redis-server /etc/redis/redis.conf
     networks:
       mynetwork:
-        ipv4_address: 172.19.0.7
+        ipv4_address: 172.18.0.7
 
 networks:
   mynetwork:
