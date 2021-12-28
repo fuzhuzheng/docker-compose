@@ -4,8 +4,8 @@ services:
     container_name: phpmyadmin5
     image: phpmyadmin:latest
     restart: always
-#    ports:
-#      - 8080:80
+    ports:
+      - 8080:8080
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=172.18.0.3
@@ -13,7 +13,7 @@ services:
       - MYSQL_PASSWORD=root
     networks:
         mynetwork:
-          ipv4_address: 172.19.0.5
+          ipv4_address: 172.18.0.5
 
 networks:
   mynetwork:
