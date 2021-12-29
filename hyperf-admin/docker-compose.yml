@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-  app:
+  hyperf:
     container_name: hyperf-admin
     image: hyperf/hyperf:7.3-alpine-v3.11-swoole-v4
     command:
