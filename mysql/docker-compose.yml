@@ -11,8 +11,8 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
       TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
     networks:
       mynetwork:
         ipv4_address: 172.18.0.3
