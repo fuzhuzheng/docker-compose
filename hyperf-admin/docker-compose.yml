@@ -1,13 +1,13 @@
 version: '3.1'
 services:
   hyperf:
-    container_name: hyperf-admin
-    image: hyperf/hyperf:7.3-alpine-v3.11-swoole-v4
+    container_name: crm-backend
+    image: hyperf/hyperf:8.0-alpine-v3.15-swoole-v4
     command:
       - /bin/sh
       - -c
       - |
-        cd /home/flan/PhpstormProjects/hyperf-admin-backend
+        cd /home/flan/PhpstormProjects/crm-backend
         cp .env.dev.docker .env
         php -d memory_limit=-1 `which composer` i --no-dev
         rm -rf runtime/*
