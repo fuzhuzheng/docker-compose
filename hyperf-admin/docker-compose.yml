@@ -15,9 +15,7 @@ services:
     volumes:
       - /home:/home:rw
     tty: true
-#    links:
-#      - mysql
-#      - redis
+
     environment:
       HOST_IP: 127.0.0.1
       HOST_PORT: 9511
