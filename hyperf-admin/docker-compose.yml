@@ -8,8 +8,6 @@ services:
       - -c
       - |
         cd /home/flan/PhpstormProjects/crm-backend
-        cp .env.dev.docker .env
-        php -d memory_limit=-1 `which composer` i --no-dev
         rm -rf runtime/*
         php bin/hyperf.php start
     volumes:
@@ -27,6 +25,10 @@ services:
 networks:
   mynetwork:
     external: true
+
+#        cp .env.dev.docker .env
+#        php -d memory_limit=-1 `which composer` i --no-dev
+
 #  mysql:
 #    container_name: mysql
 #    command:
