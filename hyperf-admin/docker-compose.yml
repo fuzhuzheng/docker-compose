@@ -9,7 +9,7 @@ services:
       - |
         cd /home/flan/PhpstormProjects/crm-backend
         rm -rf runtime/*
-        php bin/hyperf.php start
+        composer watch
     volumes:
       - /home:/home:rw
     tty: true
@@ -26,6 +26,7 @@ networks:
   mynetwork:
     external: true
 
+#        php bin/hyperf.php start
 #        cp .env.dev.docker .env
 #        php -d memory_limit=-1 `which composer` i --no-dev
 
