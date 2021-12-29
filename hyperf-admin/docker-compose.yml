@@ -3,6 +3,7 @@ services:
   hyperf:
     container_name: crm-backend5
     image: hyperf/hyperf:8.0-alpine-v3.15-swoole-v4
+    restart: always
     command:
       - /bin/sh
       - -c
