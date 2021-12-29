@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   hyperf:
-    container_name: crm-backend
+    container_name: crm-backend5
     image: hyperf/hyperf:8.0-alpine-v3.15-swoole-v4
     command:
       - /bin/sh
@@ -18,11 +18,11 @@ services:
 
     environment:
       HOST_IP: 127.0.0.1
-      HOST_PORT: 9511
+      HOST_PORT: 9501
 
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.5
+        ipv4_address: 172.19.0.5
 
 networks:
   mynetwork:
