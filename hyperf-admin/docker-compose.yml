@@ -10,7 +10,7 @@ services:
       - |
         cd /home/flan/PhpstormProjects/crm-backend
         rm -rf runtime/*
-        composer watch
+        php ./bin/hyperf.php start
     volumes:
       - /home:/home:rw
     tty: true
