@@ -2,7 +2,7 @@ version: '3.1'
 services:
   hyperf:
     container_name: crm-backend5
-    image: hyperf/hyperf:7.3-alpine-v3.11-swoole-v4
+    image: hyperf/hyperf:7.4-alpine-v3.15-swoole-v4
     restart: always
     command:
       - /bin/sh
@@ -10,7 +10,7 @@ services:
       - |
         cd /home/flan/PhpstormProjects/crm-backend
         rm -rf runtime/*
-        php ./bin/hyperf.php start
+        composer watch
     volumes:
       - /home:/home:rw
     tty: true
