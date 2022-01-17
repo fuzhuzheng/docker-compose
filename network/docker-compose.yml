@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  mysql:
+  hello-world:
     container_name: hello-world
     image: hello-world
     networks:
