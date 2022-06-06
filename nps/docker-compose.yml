@@ -5,7 +5,7 @@ services:
     container_name: nps
     image: ffdfgdfg/nps:0.26.10 
     restart: always
-    network_mod: "host"
+    network_mode: "host"
     volumes:
       - ./conf:/conf2
  
