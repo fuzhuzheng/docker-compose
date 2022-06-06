@@ -13,9 +13,9 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - MYSQL_ROOT_PASSWORD=fc71IAAk
-      - MYSQL_USER=gitea
-      - MYSQL_PASSWORD=gitea
-      - MYSQL_DATABASE=gitea
+#      - MYSQL_USER=gitea
+#      - MYSQL_PASSWORD=gitea
+#      - MYSQL_DATABASE=gitea
     networks:
       mynetwork:
         ipv4_address: 172.18.0.3
