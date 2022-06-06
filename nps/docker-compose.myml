@@ -1,0 +1,10 @@
+version: "3"
+
+  nps:
+    container_name: nps
+    image: ffdfgdfg/nps:0.26.10 
+    restart: always
+    network_mod: "host"
+    volumes:
+      - ./conf:/conf
+ 
