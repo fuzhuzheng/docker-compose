@@ -1,8 +1,8 @@
 version: '3'
 services:
   mysql:
-    container_name: mysql3
-    image: mysql:8.0.25
+    container_name: mysql
+    image: mysql:8.0.29
     volumes:
       - ./conf:/etc/mysql/conf.d:rw
       - ./data:/var/lib/mysql:rw
@@ -11,17 +11,20 @@ services:
     ports:
       - 3306:3306
     environment:
-      TZ: Asia/Shanghai
-      MYSQL_ROOT_PASSWORD: root
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=fc71IAAk
+#      - MYSQL_USER=gitea
+#      - MYSQL_PASSWORD=gitea
+#      - MYSQL_DATABASE=gitea
     networks:
       mynetwork:
         ipv4_address: 172.18.0.3
     command:
-      --lower_case_table_names=1
+#      --lower_case_table_names=1
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
-      --explicit_defaults_for_timestamp=true
-      --default-authentication-plugin=mysql_native_password
+#      --explicit_defaults_for_timestamp=true
+#      --default-authentication-plugin=mysql_native_password
 
 networks:
   mynetwork:

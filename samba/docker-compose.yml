@@ -4,12 +4,13 @@ services:
     container_name: mysamba
     image: dperson/samba
     volumes:
-      - /home/wwwroot:/share:rw
+      - /home/flan/share:/share:rw
+      - ./conf:/etc/samba:rw
     restart: always
     command: -w "WORKGROUP" -u "flan;123456789;1000;flan;1000" -s "share;/share;yes;no;no;flan;flan;flan;comment"
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.6
+        ipv4_address: 172.18.0.7
 
 networks:
   mynetwork:

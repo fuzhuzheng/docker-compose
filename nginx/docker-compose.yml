@@ -2,7 +2,7 @@ version: '3'
 services:
 
   nginx:
-    container_name: nginx4
+    container_name: nginx
     image: nginx:latest
     restart: always
     volumes:
@@ -11,12 +11,10 @@ services:
       - ./conf/conf.d:/etc/nginx/conf.d:rw
       - ./log:/var/log/nginx:rw
     ports:
-      - 8080:8080
-      - 8081:8081
+      - 8888:8888
     networks:
       mynetwork:
-        ipv4_address: 172.19.0.4
-
+        ipv4_address: 172.18.0.8
 
 networks:
   mynetwork:

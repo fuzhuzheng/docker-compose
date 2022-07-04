@@ -2,7 +2,7 @@ version: '3'
 services:
 
   nginx:
-    container_name: php6
+    container_name: php
     build:
       context: ./php
 #    image: php:7.4.6-fpm
