@@ -1,0 +1,40 @@
+version: '3.1'
+services:
+  saas:
+    container_name: saas
+    build:
+      context: ./hyperf
+      dockerfile: /Dockerfile
+#    command:
+#      - /bin/sh
+#      - -c
+#      - |
+#        cd /home/flan/PhpstormProjects/hyperf-admin-backend
+#        cp .env.dev.docker .env
+#        php -d memory_limit=-1 `which composer` i --no-dev
+#        rm -rf runtime/*
+#        php bin/hyperf.php start
+    volumes:
+      - /home:/home:rw
+    working_dir: /home/saas/backend
+#    tty: true
+
+#    environment:
+#      HOST_IP: 127.0.0.1
+#      HOST_PORT: 9511
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.8
+    command: top
+
+networks:
+  mynetwork:
+    external: true
+
+#docker run --name hyperf \
+#-v /workspace/skeleton:/data/project \
+#-p 9501:9501 -it \
+#--privileged -u root \
+#--entrypoint /bin/sh \
+#hyperf/hyperf:7.4-alpine-v3.11-swoole
