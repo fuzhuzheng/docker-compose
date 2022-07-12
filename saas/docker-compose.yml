@@ -4,7 +4,7 @@ services:
     container_name: saas
     build:
       context: ./hyperf
-      dockerfile: /Dockerfile
+      dockerfile: ./Dockerfile
 #    command:
 #      - /bin/sh
 #      - -c
