@@ -1,6 +1,6 @@
 FROM php:7.4.33-zts-alpine
 
-ENV PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make php7-dev php7-pear pkgconf re2c pcre-dev pcre2-dev zlib-dev libtool automake"
+ENV PHPIZE_DEPS="autoconf g++ gcc automake"
 
 RUN set -ex && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS && \
