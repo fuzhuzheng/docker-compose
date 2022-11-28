@@ -1,8 +1,10 @@
 version: '3.1'
 services:
-  hyperf:
-    container_name: hyperf8
-    image: hyperf/hyperf:7.4-alpine-v3.12-swoole
+  saas:
+    container_name: saas
+    build:
+      context: ./hyperf
+      dockerfile: ./Dockerfile
 #    command:
 #      - /bin/sh
 #      - -c
@@ -14,6 +16,7 @@ services:
 #        php bin/hyperf.php start
     volumes:
       - /home:/home:rw
+    working_dir: /home/saas/backend
 #    tty: true
 
 #    environment:
@@ -23,7 +26,7 @@ services:
     networks:
       mynetwork:
         ipv4_address: 172.18.0.8
-    command: top
+    command: php ./bin/hyperf.php server:watch
 
 networks:
   mynetwork:
