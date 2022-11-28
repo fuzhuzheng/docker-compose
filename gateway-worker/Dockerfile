@@ -1,6 +1,6 @@
 FROM php:7.4.33-zts-alpine
 
-ENV PHPIZE_DEPS="autoconf g++ gcc automake"
+ENV PHPIZE_DEPS="autoconf g++ gcc automake openssl"
 
 RUN set -ex && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS && \
