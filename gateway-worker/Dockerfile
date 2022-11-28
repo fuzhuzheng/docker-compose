@@ -1,4 +1,4 @@
-FROM php:7.4.33-zts-alpine
+FROM php:7.4-cli-alpine
 
 RUN set -ex && \
     docker-php-ext-install opcache pcntl opcache && \
