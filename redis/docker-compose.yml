@@ -2,8 +2,8 @@ version: '3'
 services:
 
   nginx:
-    container_name: redis7
-    image: redis:5.0.14
+    container_name: redis
+    image: redis:latest
     restart: always
     ports:
       - 6379:6379
@@ -11,10 +11,3 @@ services:
       - ./conf/redis.conf:/etc/redis/redis.conf:rw
       - ./data:/data:rw
     command: redis-server /etc/redis/redis.conf
-    networks:
-      mynetwork:
-        ipv4_address: 172.18.0.7
-
-networks:
-  mynetwork:
-    external: true

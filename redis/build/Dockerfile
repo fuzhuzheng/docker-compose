@@ -1,2 +1,2 @@
-FROM redis:5.0.14
+FROM redis:latest
 CMD [ "redis-server", "/etc/redis/redis.conf" ]
