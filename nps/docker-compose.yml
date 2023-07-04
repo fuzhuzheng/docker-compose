@@ -3,9 +3,8 @@ version: "3"
 services:
   nps:
     container_name: nps
-    image: ffdfgdfg/nps:v0.26.10 
+    image: ffdfgdfg/nps:v0.26.10
     restart: always
     network_mode: "host"
     volumes:
       - ./conf:/conf
- 
